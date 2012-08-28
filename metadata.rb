@@ -8,3 +8,6 @@ version          "0.0.1"
 depends "java"
 depends "logrotate"
 depends "service_discovery"
+
+recipe "kafka::install"
+recipe "kafka::config"

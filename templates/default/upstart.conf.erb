@@ -1,0 +1,14 @@
+# Start the Kafka server daemon
+#
+author          "Mike Heffner <mike@librato.com>"
+description     "Runs the Kafka server daemon"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+# XXX: force the right Java
+env JAVA_HOME=<%= @java_home %>
+
+respawn
+
+exec <%= @kafka_dir %>/bin/kafka-server-start.sh <%= @kafka_dir %>/config/server.properties >> /var/log/kafka/output.log 2>&1

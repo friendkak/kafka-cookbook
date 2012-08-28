@@ -1,0 +1,21 @@
+#!/bin/bash
+
+FILEIN="<%= @filename_in %>"
+FILEOUT="<%= @filename_out %>"
+
+set -x
+
+cp $FILEIN $FILEOUT
+
+sed -i -e 's/^brokerid=.*$/brokerid=<%= @broker_id %>/' \
+       -e 's/^log.dir=.*$/log.dir=<%= @log_dir %>/' \
+       -e 's/^num.partitions=.*$/num.partitions=<%= @num_partitions %>/' \
+       -e 's/^zk.connect=.*$/zk.connect=<%= @zk_servers.join(",") %>/' \
+       $FILEOUT
+
+
+<%- if @hostname %>
+    sed -i -e 's/^.*hostname=.*$/hostname=<%= @hostname %>/' \
+              $FILEOUT
+<%- end %>
+

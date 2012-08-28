@@ -49,7 +49,7 @@ template "/etc/init/kafka.conf" do
   source "upstart.conf.erb"
   owner "root"
   mode "0644"
-  variables({ :java_home => "/usr/lib/jvm/java-6-sun/jre",
+  variables({ :java_home => "/usr/lib/jvm/default-java/jre", # XXX
               :kafka_dir => "/opt/src/kafka-#{version}"
             })
 end

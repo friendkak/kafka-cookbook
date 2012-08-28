@@ -9,5 +9,5 @@ depends "java"
 depends "logrotate"
 depends "service_discovery"
 
-recipe "kafka::install"
-recipe "kafka::config"
+recipe "kafka::install", "Install Apache Kafka"
+recipe "kafka::config", "Configure Apache Kafka"

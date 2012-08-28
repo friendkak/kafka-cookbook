@@ -11,6 +11,7 @@ default[:kafka][:logrotate_rotate] = 14
 default[:kafka][:zk_servers] = ['localhost:2181']
 
 default[:kafka][:broker_id] = 0
+default[:kafka][:num_partitions] = 1
 default[:kafka][:hostname] = nil
 
 default[:kafka][:zk_root] = "kafka"

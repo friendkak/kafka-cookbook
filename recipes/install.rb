@@ -27,15 +27,21 @@ execute "Untar Kafka" do
   creates "/opt/src/kafka-#{version}"
 end
 
-execute "sbt update" do
-  command "./sbt update"
+bash "sbt update" do
+  code <<EOH
+export PATH=$PATH:/usr/lib/jvm/default-java/bin/
+/bin/bash sbt update
+EOH
   action :run
   cwd "/opt/src/kafka-#{version}"
   creates "/opt/src/kafka-#{version}/lib_managed"
 end
 
-execute "sbt package" do
-  command "./sbt package"
+bash "sbt package" do
+  code <<EOH
+export PATH=$PATH:/usr/lib/jvm/default-java/bin/
+/bin/bash sbt package
+EOH
   action :run
   cwd "/opt/src/kafka-#{version}"
   creates "/opt/src/kafka-#{version}/perf/target"

@@ -14,4 +14,4 @@ default[:kafka][:broker_id] = 0
 default[:kafka][:num_partitions] = 1
 default[:kafka][:hostname] = nil
 
-default[:kafka][:zk_root] = "kafka"
+#default[:kafka][:zk_root] = "kafka"

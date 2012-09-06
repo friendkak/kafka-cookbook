@@ -54,6 +54,8 @@ template "/etc/init/kafka.conf" do
             })
 end
 
+include_recipe "kafka::iptables"
+
 # Register
 service 'kafka' do
   provider Chef::Provider::Service::Upstart

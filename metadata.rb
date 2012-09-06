@@ -8,6 +8,8 @@ version          "0.0.1"
 depends "java"
 depends "logrotate"
 depends "service_discovery"
+depends "iptables"
 
 recipe "kafka::install", "Install Apache Kafka"
 recipe "kafka::config", "Configure Apache Kafka"
+recipe "kafka::iptables", "Configure Apache Kafka firewall rules"

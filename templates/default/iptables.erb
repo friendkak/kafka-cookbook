@@ -1,3 +1,4 @@
 # Allow a TCP port
 #
 -A FWR -p TCP --dport <%= @port %> -j ACCEPT
+-A FWR -p TCP --dport <%= @mx4j_port %> -j ACCEPT

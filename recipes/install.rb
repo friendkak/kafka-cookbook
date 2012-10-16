@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+package "libmx4j-java"
+
 directory "/opt/src" do
   action :create
   recursive true

@@ -11,6 +11,8 @@
 #   mode 0755
 # end
 
+require 'java'
+
 version = node[:kafka][:version]
 
 execute "backup kafka server.properties" do
@@ -49,8 +51,9 @@ template "/etc/init/kafka.conf" do
   source "upstart.conf.erb"
   owner "root"
   mode "0644"
-  variables({ :java_home => "/usr/lib/jvm/default-java/jre", # XXX
-              :kafka_dir => "/opt/src/kafka-#{version}"
+  variables({ :java_home => "#{node['java']['java_home']}/jre",
+              :kafka_dir => "/opt/src/kafka-#{version}",
+              :mx4j_path => "/usr/share/java/mx4j-tools.jar"
             })
 end
 

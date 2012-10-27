@@ -11,7 +11,7 @@
 #   mode 0755
 # end
 
-require 'java'
+include_recipe 'java'
 
 version = node[:kafka][:version]
 

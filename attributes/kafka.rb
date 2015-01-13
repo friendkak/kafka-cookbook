@@ -8,6 +8,8 @@ default[:kafka][:data_dir] = "/tmp/kafka-logs"
 default[:kafka][:logrotate_freq] = 'daily'
 default[:kafka][:logrotate_rotate] = 14
 
+default[:kafka][:log_retention_hours] = 96
+
 default[:kafka][:zk_servers] = ['localhost:2181']
 
 default[:kafka][:broker_id] = 0

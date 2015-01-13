@@ -28,6 +28,7 @@ template "/tmp/kafka_config.sh" do
   variables ({ :broker_id => node[:kafka][:broker_id],
                :hostname => node[:kafka][:hostname],
                :log_dir => node[:kafka][:data_dir],
+               :log_retention_hours => node[:kafka][:log_retention_hours],
                :num_partitions => node[:kafka][:num_partitions],
                :zk_servers => node[:kafka][:zk_servers],
                :filename_in => "/opt/src/kafka-#{version}/config/server.properties.orig",
